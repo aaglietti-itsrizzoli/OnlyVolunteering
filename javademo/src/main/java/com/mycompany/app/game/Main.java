@@ -9,6 +9,7 @@ import com.mycompany.app.general.Utils;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -18,7 +19,9 @@ import java.util.Scanner;
 public class Main {
 	static Player selected;
 	public static ArrayList<Player> characters = new ArrayList<>();
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static Scanner scanner;
+
+	public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		Player person;
 
@@ -51,7 +54,7 @@ public class Main {
 			System.out.print("---------------------------------------------------------------------------------------------------------------\n");
 
 
-			Scanner scanner = new Scanner(System.in);
+			Main.scanner = new Scanner(System.in);
 			int choice = scanner.nextInt();
 
 
