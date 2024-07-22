@@ -25,7 +25,10 @@ jobs:
       - run: |
           cd javademo
           mvn install 
-      - run: mvn test    
+      - run: |
+          cd javademo
+          mvn test   
+           
       - run: java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
         working-directory: javademo
       - uses: actions/upload-artifact@v4
