@@ -10,7 +10,7 @@ jobs:
   si:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Qualcosa"
+      - run: ls -la
   exec:
     runs-on: ubuntu-latest
     steps:
