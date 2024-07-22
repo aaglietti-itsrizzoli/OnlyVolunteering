@@ -15,5 +15,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-        cd javademo
+        cd ../javademo
         mvn install ../javademo 
