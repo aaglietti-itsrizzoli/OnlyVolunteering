@@ -11,3 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Qualcosa"
+  exec:
+    runs-on: ubuntu-latest
+    steps:
+      - run: mvn install
