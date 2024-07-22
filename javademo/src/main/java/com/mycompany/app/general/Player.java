@@ -16,8 +16,6 @@ import com.mycompany.app.monster.Monster;
  */
 
 public class Player implements Action{
-	Scanner scanner = new Scanner(System.in);
-
 	private String name;
 	private int health;
 	private int speed;

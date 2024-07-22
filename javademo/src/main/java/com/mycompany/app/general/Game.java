@@ -8,6 +8,7 @@ import com.mycompany.app.equip.Material;
 import com.mycompany.app.equip.Spell;
 import com.mycompany.app.equip.Weapon;
 import com.mycompany.app.equip.WeaponType;
+import com.mycompany.app.game.Main;
 import com.mycompany.app.monster.Dragon;
 import com.mycompany.app.monster.Dwarf;
 import com.mycompany.app.monster.Goblin;
@@ -74,9 +75,8 @@ public class Game {
 
 		System.out.printf("Which would you take? [L/R]\n");
 		boolean exit = true;
-		Scanner scanner = new Scanner(System.in);
 		while(exit){
-			String input = scanner.nextLine();
+			String input = Main.scanner.nextLine();
 			if(input.equals("L") || input.equals("Left") || input.equals("left") ){
 				exit = false;
 				cavePath();
@@ -98,8 +98,6 @@ public class Game {
 	 * @throws InterruptedException
 	 * */
 	public void encounter(Player p,Monster ...monsters ) throws InterruptedException {
-		Scanner scanner = new Scanner(System.in);
-
 		int damage = 0;
 		boolean exit = true;
 		boolean valid = true;
@@ -113,8 +111,8 @@ public class Game {
 							System.out.println(m.getDescription() + " is dead");
 						}
 					}
-					target = scanner.nextLine();
-					if(Integer.parseInt(target) < monsters.length){
+					target = Main.scanner.nextLine();
+					if (Integer.parseInt(target) < monsters.length) {
 						valid = false;
 					}else {
 						System.out.printf("Invalid target\n");
@@ -123,7 +121,7 @@ public class Game {
 			}
 			while(exit) {
 				player.action();
-				switch(scanner.nextLine()) {
+				switch(Main.scanner.nextLine()) {
 				case "1", "Light attack", "Light Attack", "light attack":
 					damage = player.attackLight();
 					System.out.printf("Light attack done: %d damage\n", damage);
@@ -147,7 +145,7 @@ public class Game {
 					for(Spell spell : player.spells) {
 						System.out.println(spell.toString());
 					}
-					String input = scanner.nextLine();
+					String input = Main.scanner.nextLine();
 					if(input.equalsIgnoreCase(player.spells[1].getName())) {
 						damage = player.attackSpell(player.spells[1]);
 						System.out.printf("Spell launched: %d damage\n", damage);
@@ -248,9 +246,8 @@ public class Game {
 		TimeUnit.SECONDS.sleep(2);
 		Utils.printDwarf();
 		System.out.println("Do you want to approach them in an hostile way? [Y/n]");
-		Scanner scanner = new Scanner(System.in);
 		boolean exit = true;
-		String input = scanner.nextLine();
+		String input = Main.scanner.nextLine();
 		while(exit){
 			if(input.equalsIgnoreCase("Y")) {
 				exit = false;
@@ -276,12 +273,12 @@ public class Game {
 				exit = true;
 				while(exit) {
 					System.out.println("Do you want to swap weapon? [Y/n]");
-					if(scanner.nextLine().equalsIgnoreCase("Y")) {
+					if(Main.scanner.nextLine().equalsIgnoreCase("Y")) {
 						player.setWeapon(hammer);
 						System.out.println("Weapon swapped");
 						exit = false;
 						player.setModifier();
-					}else if(scanner.nextLine().equalsIgnoreCase("N")) {
+					}else if(Main.scanner.nextLine().equalsIgnoreCase("N")) {
 						System.out.println("You declined the dwarves offer");
 						exit = false;
 
