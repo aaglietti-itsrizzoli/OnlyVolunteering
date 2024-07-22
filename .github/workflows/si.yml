@@ -28,6 +28,12 @@ jobs:
       - run: |
           cd javademo
           mvn test   
+
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=immortalis202_onlyvolunteering
            
       - run: java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
         working-directory: javademo
@@ -40,3 +46,4 @@ jobs:
           # A file, directory or wildcard pattern that describes what to upload
           # Required.
           path: javademo/target/my-app-1.0-SNAPSHOT.jar
+
