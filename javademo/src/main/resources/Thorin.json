@@ -1,0 +1,26 @@
+{
+  "name": "Thorin" ,
+  "dex": 4,
+  "wis": 0,
+  "str": 13,
+  "speed": 10,
+  "health": 30,
+  "armor" : {
+    "name" : "BreastPlate",
+    "armorType" : "HEAVY",
+    "description" : "A simple iron armor",
+    "material" : "STEEL",
+    "hpModifier" : 4,
+    "speedModifier" : -2
+  },
+  "weapon" : {
+    "name" : "hammer time",
+    "strModifier" : 3,
+    "spModifier" : 1,
+    "dexModifier" : 0,
+    "wisModifier" : 0,
+    "material" : "STEEL",
+    "description" : "a steel hammer",
+    "weaponType": "HAMMER"
+  }
+}

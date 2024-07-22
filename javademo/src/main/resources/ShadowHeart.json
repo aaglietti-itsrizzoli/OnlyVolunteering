@@ -1,0 +1,26 @@
+{
+  "name": "ShadowHeart" ,
+  "dex": 7,
+  "wis": 10,
+  "str": 2,
+  "speed": 10,
+  "health": 25,
+  "armor" : {
+    "name" : "BreastPlate",
+    "armorType" : "MEDIUM",
+    "description" : "A simple iron armor",
+    "material" : "IRON",
+    "hpModifier" : 4,
+    "speedModifier" : -1
+  },
+  "weapon" : {
+    "name" : "Silver spear",
+    "strModifier" : 3,
+    "spModifier" : 1,
+    "dexModifier" : 0,
+    "wisModifier" : 0,
+    "material" : "SILVER",
+    "description" : "a silver spear",
+    "weaponType": "SPEAR"
+  }
+}

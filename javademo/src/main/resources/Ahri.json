@@ -1,0 +1,30 @@
+{
+  "name": "Ahri" ,
+  "dex": 7,
+  "wis": 10,
+  "str": 2,
+  "speed": 10,
+  "health": 25,
+  "armor" : null,
+  "weapon" : {
+    "name" : "Silver spear",
+    "strModifier" : 3,
+    "spModifier" : 1,
+    "dexModifier" : 0,
+    "wisModifier" : 0,
+    "material" : "SILVER",
+    "description" : "a silver spear",
+    "weaponType": "SPEAR"
+  },
+  "spells" : [{
+    "name" : "Fireball",
+    "damage" : 10,
+    "cooldown" : 1,
+    "description" : "A fireball"
+    }, {"name" :  "Ice bolt", "damage": 15, "cooldown" : "2",
+  "description" :  "an ice ball"},
+    {"name" :  "Thunderbolt", "damage": 15, "cooldown" : "2",
+      "description" :  "a thunder spell"},
+    {"name" :  "Earth attack", "damage": 25, "cooldown" : "4",
+      "description" :  "ball of dirt"}]
+}
