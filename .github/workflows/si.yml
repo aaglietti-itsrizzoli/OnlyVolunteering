@@ -1,0 +1,13 @@
+name: si-actions
+run-name: Ciao da ${{ github.actor }} 
+on: [push]
+jobs:
+  si-fa-cose:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Fineeeeeeeeeeeeeeeeeeeeeeeeeeee"
+
+  si:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Qualcosa"
