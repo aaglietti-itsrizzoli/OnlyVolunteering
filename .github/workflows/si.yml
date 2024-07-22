@@ -27,4 +27,12 @@ jobs:
           mvn install 
       - run: java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
         working-directory: javademo
-        
+      - uses: actions/upload-artifact@v4
+        with:
+          # Name of the artifact to upload.
+          # Optional. Default is 'artifact'
+          name: my-app-1.0-SNAPSHOT.jar
+
+          # A file, directory or wildcard pattern that describes what to upload
+          # Required.
+          path: javademo/target/my-app-1.0-SNAPSHOT.jar
