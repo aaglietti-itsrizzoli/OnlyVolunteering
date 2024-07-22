@@ -1,18 +1,17 @@
 package com.mycompany.app.game;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mycompany.app.general.CharacterList;
 import com.mycompany.app.general.Game;
 import com.mycompany.app.general.Player;
 import com.mycompany.app.general.Utils;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 
 
@@ -21,22 +20,21 @@ public class Main {
 	public static ArrayList<Player> characters = new ArrayList<>();
 	public static void main(String[] args) throws IOException, InterruptedException {
 		ObjectMapper objectMapper = new ObjectMapper();
-		ArrayList<String> fileName = new ArrayList<>();
 		Player person;
-		try (Stream<Path> paths = Files.walk(Paths.get("src\\resources"))) {
-			paths
-					.filter(Files::isRegularFile)
-					.forEach(s -> fileName.add(String.valueOf(s)));
-		}
 
-		for(String s : fileName){
-			try {
-				File file = new File(s);
-				person = objectMapper.readValue(file, Player.class);
-			} catch(IOException e) {
-				throw new RuntimeException(e);
-			}
-			characters.add(person);
+		ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+
+		InputStream is = classloader.getResourceAsStream("characters/index.json");
+
+		CharacterList characterList = objectMapper.readValue(is, CharacterList.class);
+		System.out.println("CharacterList.characters: " + Arrays.toString(characterList.getCharacters()));
+
+		for (String s : characterList.getCharacters()) {
+				String character = String.format("characters/%s.json", s);
+				System.out.println("Reading " + character);
+				is = classloader.getResourceAsStream(character);
+				person = objectMapper.readValue(is, Player.class);
+				characters.add(person);
 		}
 		
 
