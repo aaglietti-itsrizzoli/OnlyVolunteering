@@ -164,7 +164,12 @@ public class Game {
 					exit = false;
 					break;
 				case "5", "run", "Run":
-					if(player.run(monsters[1]) && player.run(monsters[2])) {
+					boolean isRunnedAway = true;
+					for (Monster monster : monsters) {
+						boolean r = player.run(monster);
+						isRunnedAway = isRunnedAway && r;
+					}
+					if(isRunnedAway) {
 						System.out.println("You run away from the monsters");
 						return;
 					}else {
