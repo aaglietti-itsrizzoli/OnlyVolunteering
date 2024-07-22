@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: java -version
+
   exec:
     runs-on: ubuntu-latest
     steps:
@@ -24,4 +25,6 @@ jobs:
       - run: |
           cd javademo
           mvn install 
+      - run: java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
+        working-directory: javademo
         
