@@ -10,7 +10,7 @@ jobs:
   si:
     runs-on: ubuntu-latest
     steps:
-      - run: ls -la
+      - run: java -version
   exec:
     runs-on: ubuntu-latest
     steps:
