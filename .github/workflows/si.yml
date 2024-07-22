@@ -16,4 +16,5 @@ jobs:
     steps:
       - run: |
         cd ../javademo
-        mvn install ../javademo 
+        mvn install 
+        
