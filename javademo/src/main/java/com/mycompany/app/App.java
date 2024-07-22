@@ -1,6 +1,7 @@
 package com.mycompany.app;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import com.mycompany.app.game.Main;
 
@@ -10,7 +11,7 @@ import com.mycompany.app.game.Main;
  */
 public class App 
 {
-    public static void main( String[] args ) throws IOException, InterruptedException
+    public static void main( String[] args ) throws IOException, InterruptedException, URISyntaxException
     {
 
         int i = 0;
