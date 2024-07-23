@@ -56,6 +56,10 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
+          <configuration>
+              <!-- https://maven.apache.org/surefire/maven-surefire-plugin/test-mojo.html#trimstacktrace -->
+              <trimStackTrace>false</trimStackTrace>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
