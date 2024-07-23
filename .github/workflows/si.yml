@@ -1,6 +1,8 @@
 name: si-actions
 run-name: Ciao da ${{ github.actor }} 
-on: [push]
+on: 
+  push:
+  pull_request:
 jobs:
   si-fa-cose:
     runs-on: ubuntu-latest
