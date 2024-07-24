@@ -3,8 +3,6 @@ package com.mycompany.app;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import com.mycompany.app.game.Main;
-
 /**
  * Hello world!
  *
@@ -19,6 +17,5 @@ public class App
         if(i ==0){
             System.out.println("Ciao");
         }
-        Main.main(null);
     }
 }
