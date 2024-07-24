@@ -29,7 +29,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
       - run: |
           cd javademo
-          mvn clean install -DskipTests=true
+          mvn clean install -Dmaven.test.skip=true
       - run: |
           cd javademo
           mvn test   
@@ -40,7 +40,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           cd javademo
-          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=immortalis202_onlyvolunteering
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=immortalis202_onlyvolunteering -Dmaven.test.skip=true
            
       - run: java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
         working-directory: javademo
