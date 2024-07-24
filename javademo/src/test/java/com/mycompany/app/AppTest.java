@@ -48,6 +48,8 @@ public class AppTest
             .append(System.getProperty("line.separator"))
             .append("5") // run away from dragon
             .append(System.getProperty("line.separator"))
+            .append("5") // exit from the game
+            .append(System.getProperty("line.separator"))
             .toString();
         ByteArrayInputStream testIn = new ByteArrayInputStream(inputData.getBytes());
         System.setIn(testIn);
