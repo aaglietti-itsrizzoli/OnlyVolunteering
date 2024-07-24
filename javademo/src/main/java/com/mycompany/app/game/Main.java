@@ -39,6 +39,7 @@ public class Main {
 				person = objectMapper.readValue(is, Player.class);
 				characters.add(person);
 		}
+		Main.scanner = new Scanner(System.in);
 		
 
 
@@ -54,7 +55,6 @@ public class Main {
 			System.out.print("---------------------------------------------------------------------------------------------------------------\n");
 
 
-			Main.scanner = new Scanner(System.in);
 			int choice = scanner.nextInt();
 
 
