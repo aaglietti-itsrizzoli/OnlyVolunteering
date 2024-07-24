@@ -40,7 +40,13 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           cd javademo
-          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=immortalis202_onlyvolunteering -Dmaven.test.skip=true
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+            -Dsonar.projectKey=immortalis202_onlyvolunteering \
+            -Dsonar.pullrequest.key=${{ github.event.pull_request.number }} \
+            -Dsonar.pullrequest.branch=${{ github.event.pull_request.head.ref }} \
+            -Dsonar.pullrequest.base=main \
+            -Dsonar.scm.revision=${{ github.event.pull_request.head.sha }} \
+            -Dmaven.test.skip=true
            
       - run: java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
         working-directory: javademo
