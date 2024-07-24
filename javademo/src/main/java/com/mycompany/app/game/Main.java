@@ -42,9 +42,9 @@ public class Main {
 		Main.scanner = new Scanner(System.in);
 		
 
-
+		boolean exit = false;
 		System.out.print("Welcome to SECRETS OF THE FOREST\n");
-		while(true){
+		while(!exit){
 			System.out.print("---------------------------------------------------------------------------------------------------------------\n");
 			System.out.print("What do you want to do?\n");
 			System.out.println("[1] Choose the character to start");
@@ -137,8 +137,9 @@ public class Main {
 				 Game game2 = new Game(selected);
 				 game2.start(selected);
 			case 5:
-				System.exit(1);
-
+				System.out.println("Arrivedorci");
+				exit = true;
+				break;
 			default:
 				System.out.println("Invalid choice");
 				break;
