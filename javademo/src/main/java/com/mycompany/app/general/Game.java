@@ -105,7 +105,7 @@ public class Game {
 	 * @param monsters
 	 * @throws InterruptedException
 	 */
-	public void encounter(Player p, Monster... monsters) throws InterruptedException {
+	public boolean encounter(Player p, Monster... monsters) throws InterruptedException {
 		int damage = 0;
 		boolean exit = true;
 		boolean valid = true;
@@ -179,7 +179,7 @@ public class Game {
 						}
 						if (escape) {
 							System.out.println("You run away from the monsters");
-							return;
+							return true;
 						} else {
 							System.out.println("You couldn't run away from the monsters");
 						}
@@ -243,6 +243,7 @@ public class Game {
 				player.setHealth(player.getHealth() - damageToPlayer);
 			}
 		}
+		return false;
 	}
 
 	public void cavePath() throws InterruptedException {
@@ -331,7 +332,10 @@ public class Game {
 				"Only the scream of the dragon wakes you up but it is already too late, he approach you angrily");
 		TimeUnit.SECONDS.sleep(1);
 		while ((dragon.getHealth() > 0) & (player.getHealth() > 0)) {
-			encounter(player, dragon);
+			if(encounter(player, dragon)){
+			//se true scappa	
+				break;			
+			}
 		}
 
 		if (dragon.getHealth() < 1) {
